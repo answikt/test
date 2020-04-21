@@ -22,8 +22,4 @@ function App({squares, isXnext, status, isEndGame, changeSquare, resetGame}) {
   );
 }
 
-const mapStateToProps = ({squares, isXnext, status, isEndGame}) => {
-  return {squares, isXnext, status, isEndGame}
-};
-
-export default connect(mapStateToProps, actions)(App);
+export default connect(state => state, actions)(App);
