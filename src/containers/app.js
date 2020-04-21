@@ -1,50 +1,29 @@
-import React, {useState,useEffect} from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 import Board from '../components/board';
-import checkWinner from './../utils/check-winner';
+import * as actions from '../actions';
 
-function App() {
-  const [squares, setSquares] = useState(Array(9).fill(null));
-  const [isXnext, setIsXnext] = useState(true);
-  const [status, setStatus] = useState();
-  const [isEndGame, setIsEndGame] = useState(false);
 
-  useEffect(
-    () => {
-      const winner = checkWinner(squares,isXnext);
-      if (winner === 'none') {
-        setStatus('Ничья');
-        setIsEndGame(true);
-      } else if (winner) {
-        setStatus(`Выиграл: "${winner}"`);
-        setIsEndGame(true);
-      } else {
-        const player = isXnext ? 'X' : 'O'
-        setStatus(`Следующий: "${player}"`);
-      }
-    }, [squares,isXnext]
-  )
+function App({squares, isXnext, status, isEndGame, changeSquare, resetGame}) {
 
   return (
     <div className="app">
-      <h1>{status}</h1>
+      <div className="header">{status}</div>
       <Board 
         squares={squares} 
         isXnext={isXnext}
         isEndGame={isEndGame}
-        onChangeSquares={squares => setSquares(squares)}
-        onChangeNext={next => setIsXnext(next)}
+        onChangeSquares={squares => changeSquare(squares)}
       />
-      {isEndGame && (<div className='reset'>
-        <button onClick={() => resetGame()}>Начать заново?</button>
+      {isEndGame && (<div className="reset">
+        <button className="reset__button" onClick={() => resetGame()}>Начать заново?</button>
       </div>)}
     </div>
   );
-
-  function resetGame() {
-    setIsEndGame(false);
-    setSquares(Array(9).fill(null));
-    setIsXnext(true);
-  }
 }
 
-export default App;
+const mapStateToProps = ({squares, isXnext, status, isEndGame}) => {
+  return {squares, isXnext, status, isEndGame}
+};
+
+export default connect(mapStateToProps, actions)(App);
