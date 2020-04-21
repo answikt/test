@@ -1,7 +1,11 @@
-import Post from './functions';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import './index.css';
-import './scss.scss'
+import App from './containers/app';
 
-const post = new Post('test')
-
-console.log('post to string', post.toString())
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);

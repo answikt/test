@@ -11,6 +11,12 @@
   },
   "author": "Anastasia Oreshkina",
   "license": "ISC",
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  },
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
@@ -31,6 +37,8 @@
   },
   "dependencies": {
     "cross-env": "^7.0.2",
-    "normalize.css": "^8.0.1"
+    "normalize.css": "^8.0.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }

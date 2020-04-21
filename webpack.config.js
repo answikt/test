@@ -75,34 +75,14 @@ module.exports = {
                 'css-loader',
                 'sass-loader']
             },
-            { 
-                test: /\.js$/, 
-                exclude: /node_modules/, 
-                loader: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: [
-                            '@babel/preset-env'
-                        ]
-                    }
-                } 
-            },
-            { 
-                test: /\.jsx$/, 
-                exclude: /node_modules/, 
-                loader: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: [
-                            '@babel/preset-env'
-                        ],
-                        plugins: [
-                            '@babel/preset-react'
-                        ]
-                    }
-                } 
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: ['babel-loader']
             }
-
         ]
+    },
+    resolve: {
+        extensions: ['*', '.js', '.jsx']
     }
 };
