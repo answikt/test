@@ -14,7 +14,7 @@ body {
 .header {
   padding: 10px;
   font-size: 50px;
-  color: #ffffff;
+  color: $secondary-color;
   background: $primary-color;
 }
 
@@ -23,10 +23,10 @@ body {
   flex-wrap: wrap;
   width: 330px;
   height: 330px;
-  border: 3px solid #3F51B5;
+  border: 3px solid $primary-color;
   margin: 50px auto;
   padding: 5px;
-  background: #ffffff;
+  background: $secondary-color;
   font-size: 60px;
   border-radius: 3px;
   &--blocked {
@@ -41,8 +41,8 @@ body {
   width: 100px;
   height: 100px;
   margin: 5px;
-  color: #ffffff;
-  background: #3F51B5;
+  color: $secondary-color;
+  background: $primary-color;
   box-sizing: border-box;
   cursor: pointer;
   border-radius: 5px;
@@ -54,8 +54,8 @@ body {
   &__button {
     border: 0;
     border-radius: 5px;
-    background: #3F51B5;
-    color: #fff;
+    background: $primary-color;
+    color: $secondary-color;
     padding: 14px 22px;
     font-size: 25px;
     cursor: pointer;
