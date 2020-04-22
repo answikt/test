@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from "react-redux";
 import store from "./store";
-import './index.css';
+import './styles.scss';
 import App from './containers/app';
 
 ReactDOM.render(
